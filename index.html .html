@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; min-height: 16.0px}
+  </style>
+</head>
+<body>
+<p class="p1"><b>&lt;!DOCTYPE html&gt;</b></p>
+<p class="p1"><b>&lt;html lang="de"&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">  </span>&lt;head&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8" /&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">    </span>&lt;meta name="theme-color" content="#0000FF" /&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">    </span>&lt;title&gt;Busfahrer Navi&lt;/title&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">    </span>&lt;link rel="manifest" href="manifest.json" /&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">    </span>&lt;style&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>html, body, #map {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>margin: 0;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>padding: 0;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>height: 100%;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>width: 100%;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>}</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>#admin {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>position: absolute;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>top: 10px;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>left: 10px;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>z-index: 5;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>background: rgba(255,255,255,0.9);</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>padding: 8px;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>border-radius: 8px;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>font-family: Arial, sans-serif;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>width: 260px;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>}</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>#admin h3 {margin: 0 0 6px 0; font-size: 16px;}</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>#admin input, #admin select {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>width: 100%;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>margin-bottom: 4px;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>padding: 4px;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>box-sizing: border-box;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>}</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>#admin button {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>width: 100%;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>padding: 6px;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>border: none;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>border-radius: 6px;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>background: #0000FF;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>color: #fff;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>font-size: 14px;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>}</b></p>
+<p class="p1"><b><span class="Apple-converted-space">    </span>&lt;/style&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">  </span>&lt;/head&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">  </span>&lt;body&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">    </span>&lt;div id="map"&gt;&lt;/div&gt;</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">    </span>&lt;div id="admin"&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>&lt;h3&gt;Umleitung hinzufügen&lt;/h3&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>&lt;select id="lineInput"&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>&lt;option value="M27"&gt;M27&lt;/option&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>&lt;option value="123"&gt;123&lt;/option&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>&lt;option value="245"&gt;245&lt;/option&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>&lt;option value="TXL"&gt;TXL&lt;/option&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>&lt;option value="N1"&gt;N1&lt;/option&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>&lt;option value="SEV U6"&gt;SEV U6&lt;/option&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>&lt;option value="SEV U2"&gt;SEV U2&lt;/option&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>&lt;option value="X10"&gt;X10&lt;/option&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>&lt;option value="M41"&gt;M41&lt;/option&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>&lt;option value="N7"&gt;N7&lt;/option&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>&lt;option value="SEV S1"&gt;SEV S1&lt;/option&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>&lt;/select&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>&lt;input id="reasonInput" placeholder="Grund" /&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>&lt;input id="latInput" placeholder="Latitude" /&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>&lt;input id="lngInput" placeholder="Longitude" /&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>&lt;button id="addBtn"&gt;Hinzufügen&lt;/button&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">    </span>&lt;/div&gt;</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">    </span>&lt;script&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>const busLines = {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>"M27": {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>name: "M27",</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>stops: [</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>{ name: "S+U Jungfernheide", lat: 52.530011, lng: 13.299823 },</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>{ name: "U Turmstr.", lat: 52.526007, lng: 13.339764 },</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>{ name: "Hauptbahnhof", lat: 52.525084, lng: 13.369402 },</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>{ name: "Friedrichstr.", lat: 52.520805, lng: 13.387176 },</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>{ name: "U Rosenthaler Platz", lat: 52.531675, lng: 13.401384 },</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>{ name: "Pappelallee", lat: 52.541125, lng: 13.416288 }</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>]</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>},</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>"123": {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>name: "123",</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>stops: [</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>{ name: "U Kurfürstenstr.", lat: 52.499294, lng: 13.357328 },</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>{ name: "S+U Yorckstr.", lat: 52.493318, lng: 13.365362 },</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>{ name: "U Möckernbrücke", lat: 52.496203, lng: 13.382165 }</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>]</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>},</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>"SEV U6": {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>name: "SEV U6",</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>stops: [</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>{ name: "Alt-Tegel", lat: 52.588234, lng: 13.293746 },</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>{ name: "Kurt-Schumacher-Platz", lat: 52.561574, lng: 13.326599 },</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>{ name: "Wedding", lat: 52.548, lng: 13.369 }</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>]</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>}</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>};</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>const disruptions = [</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>{</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>line: "M27",</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>reason: "Baustelle Turmstraße",</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>location: { lat: 52.526007, lng: 13.339764 },</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>active: true,</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>color: "red"</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>}</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>];</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>let map;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>let currentLine = "M27";</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>async function loadLiveDisruptions(lineName) {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>try {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>const response = await fetch('disruptions.json');</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>const liveDisruptions = await response.json();</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>return liveDisruptions.filter(d =&gt; d.line === lineName &amp;&amp; d.active);</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>} catch (e) {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>console.warn("Live-Umleitungen konnten nicht geladen werden:", e);</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>return [];</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>}</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>}</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>function addDisruptionMarker(disruption) {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>new google.maps.Marker({</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>position: disruption.location,</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>map,</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>icon: `http://maps.google.com/mapfiles/ms/icons/${disruption.color || 'orange'}-dot.png`,</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>title: `${disruption.line}: ${disruption.reason}`</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>});</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>}</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>async function drawLine(lineName) {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>const line = busLines[lineName];</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>if (!line) return;</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>map.setCenter({ lat: line.stops[0].lat, lng: line.stops[0].lng });</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>const busPath = new google.maps.Polyline({</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>path: line.stops.map(stop =&gt; ({ lat: stop.lat, lng: stop.lng })),</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>geodesic: true,</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>strokeColor: "#0000FF",</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>strokeOpacity: 1.0,</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>strokeWeight: 4</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>});</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>busPath.setMap(map);</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>line.stops.forEach(stop =&gt; {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>new google.maps.Marker({ position: { lat: stop.lat, lng: stop.lng }, map, title: stop.name });</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>});</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>disruptions.filter(d =&gt; d.line === lineName).forEach(addDisruptionMarker);</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>const liveDisruptions = await loadLiveDisruptions(lineName);</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>liveDisruptions.forEach(d =&gt; addDisruptionMarker({ ...d, color: 'orange' }));</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>}</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>async function initMap() {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>currentLine = document.getElementById('lineInput').value;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>map = new google.maps.Map(document.getElementById("map"), {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>zoom: 13,</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>center: { lat: 52.52, lng: 13.38 }</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>});</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>await drawLine(currentLine);</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>}</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>document.addEventListener('DOMContentLoaded', () =&gt; {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>document.getElementById('addBtn').addEventListener('click', () =&gt; {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>const line = document.getElementById('lineInput').value.trim();</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>const reason = document.getElementById('reasonInput').value.trim();</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>const lat = parseFloat(document.getElementById('latInput').value);</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>const lng = parseFloat(document.getElementById('lngInput').value);</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>if (!line || !reason || isNaN(lat) || isNaN(lng)) {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>alert('Bitte alle Felder korrekt ausfüllen');</b></p>
+<p class="p1"><b><span class="Apple-converted-space">            </span>return;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>}</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>const newDisruption = { line, reason, location: { lat, lng }, active: true, color: 'purple' };</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>addDisruptionMarker(newDisruption);</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>alert('Umleitung hinzugefügt!');</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>});</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>document.getElementById('lineInput').addEventListener('change', async (e) =&gt; {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>currentLine = e.target.value;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">          </span>initMap();</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>});</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>});</b></p>
+<p class="p2"><b></b><br></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>if ('serviceWorker' in navigator) {</b></p>
+<p class="p1"><b><span class="Apple-converted-space">        </span>navigator.serviceWorker.register('sw.js').then(() =&gt; console.log('Service Worker registriert'));</b></p>
+<p class="p1"><b><span class="Apple-converted-space">      </span>}</b></p>
+<p class="p1"><b><span class="Apple-converted-space">    </span>&lt;/script&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">    </span>&lt;script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;callback=initMap"&gt;&lt;/script&gt;</b></p>
+<p class="p1"><b><span class="Apple-converted-space">  </span>&lt;/body&gt;</b></p>
+<p class="p1"><b>&lt;/html&gt;</b></p>
+</body>
+</html>

@@ -1,0 +1,27 @@
+// sw.js – Service Worker für Offline-Funktion
+
+const CACHE_NAME = 'busfahrer-navi-cache-v1';
+const URLS_TO_CACHE = [
+  '/',
+  '/index.html',
+  '/manifest.json',
+  'https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap'
+];
+
+// Beim Installieren: Dateien cachen
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(URLS_TO_CACHE);
+    })
+  );
+});
+
+// Beim Abrufen: Cache zuerst, dann Netzwerk
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
+  );
+});
